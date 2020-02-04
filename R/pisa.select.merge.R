@@ -105,7 +105,7 @@ pisa.select.merge <-
       }
       
       
-      pisa.school <- read.spss(files.all[["School"]], to.data.frame=TRUE, use.value.labels=FALSE)
+      pisa.school <- read.spss(files.all[["School"]], to.data.frame=TRUE, use.value.labels=TRUE)
       names(pisa.school) <- toupper(names(pisa.school))
       
       
