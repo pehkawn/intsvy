@@ -50,7 +50,7 @@ pisa.select.merge <-
     files.all <- files.all[sapply(files.all, length)>0]
     
     # Participating countries (from student file)
-    pisa.student <- read.spss(files.all[["Student"]], to.data.frame=TRUE, use.value.labels=FALSE)
+    pisa.student <- haven::read_spss(files.all[["Student"]])
     country <- names(table(pisa.student[, "CNT"])) 
     
     # If countries missing, all countries selected
@@ -87,7 +87,7 @@ pisa.select.merge <-
       }
       
       
-      pisa.parent <- read.spss(files.all[["Parent"]], to.data.frame=TRUE, use.value.labels=FALSE)
+      pisa.parent <- haven::read_spss(files.all[["Parent"]])
       names(pisa.parent) <- toupper(names(pisa.parent))
       
       parent.data <- pisa.parent[pisa.parent[["CNT"]] %in% countries, 
@@ -105,7 +105,7 @@ pisa.select.merge <-
       }
       
       
-      pisa.school <- read.spss(files.all[["School"]], to.data.frame=TRUE, use.value.labels=FALSE)
+      pisa.school <- haven::read_spss(files.all[["School"]])
       names(pisa.school) <- toupper(names(pisa.school))
       
       
